@@ -37,7 +37,7 @@ namespace App
                 .Build();
 
             var svc = ActivatorUtilities.CreateInstance<UI>(host.Services);
-            svc.Menu();
+            await svc.Menu();
         }
 
         static void BuildConfig(IConfigurationBuilder builder)
