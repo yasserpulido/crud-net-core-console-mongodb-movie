@@ -22,8 +22,7 @@ namespace Core.Services
         {
             try
             {
-                bool result = await _movie.CreateMovie(movie);
-                return result;
+                return await _movie.CreateMovie(movie);
             }
             catch (Exception e)
             {
@@ -42,8 +41,7 @@ namespace Core.Services
         {
             try
             {
-                var result = await _movie.GetMovieBy(title, released);
-                return result;
+                return await _movie.GetMovieBy(title, released);
             }
             catch (Exception e)
             {
@@ -60,8 +58,7 @@ namespace Core.Services
         {
             try
             {
-                var result = await _movie.GetAllMovies();
-                return result;
+                return await _movie.GetAllMovies();
             }
             catch (Exception e)
             {
@@ -79,8 +76,7 @@ namespace Core.Services
         {
             try
             {
-                bool result = await _movie.UpdateMovie(movie);
-                return result;
+                return await _movie.UpdateMovie(movie);
             }
             catch (Exception e)
             {
@@ -98,8 +94,7 @@ namespace Core.Services
         {
             try
             {
-                var result = await _movie.DeleteMovie(movie);
-                return result;
+                return await _movie.DeleteMovie(movie);
             }
             catch (Exception e)
             {
@@ -116,11 +111,11 @@ namespace Core.Services
         {
             try
             {
-                var result = await _movie.GetAllMovies();
+                var movies = await _movie.GetAllMovies();
 
                 if (result != null)
                 {
-                    string json = JsonSerializer.Serialize(result);
+                    string json = JsonSerializer.Serialize(movies);
                     await File.WriteAllTextAsync(@"C:\Users\pulid\Documents\movie.json", json);
                     return true;
                 }

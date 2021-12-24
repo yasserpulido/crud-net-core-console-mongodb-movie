@@ -350,9 +350,9 @@ namespace App
                         Console.ForegroundColor = ConsoleColor.Gray;
                     }
                 }
-             
+
                 PressAnyKeyMessage();
-                
+
                 await Menu();
             }
             else

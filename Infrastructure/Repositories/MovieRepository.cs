@@ -43,8 +43,7 @@ namespace Infrastructure.Repositories
         {
             try
             {
-                var movies = await _collection.FindAsync(m => true).Result.ToListAsync();
-                return movies;
+                return await _collection.FindAsync(m => true).Result.ToListAsync();
             }
             catch (Exception e)
             {
@@ -63,8 +62,7 @@ namespace Infrastructure.Repositories
         {
             try
             {
-                var movies =  await _collection.FindAsync(m => m.Title.ToUpper() == title && m.Released == released).Result.FirstOrDefaultAsync();
-                return movies;
+                return await _collection.FindAsync(m => m.Title.ToUpper() == title && m.Released == released).Result.FirstOrDefaultAsync();
             }
             catch (Exception e)
             {
